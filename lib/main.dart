@@ -2,8 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/core/theme/dark_themedata.dart';
+import 'package:todo/core/theme/light_theme.dart';
 import 'package:todo/core/theme/theme_provider.dart';
 import 'package:todo/presentation/cubit/authentication/authentication_cubit.dart';
+import 'package:todo/presentation/cubit/todo/todo_cubit.dart';
 import 'package:todo/presentation/screens/authentication/auth_manager.dart';
 import 'dependency_injection.dart';
 import 'firebase_options.dart';
@@ -32,12 +35,15 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           themeMode: provider.themeMode,
-          darkTheme: ThemeData.dark(),
-          theme: ThemeData.light(),
+          darkTheme: DarkTheme.themeData(),
+          theme: LightTheme.themeData(),
           home: MultiBlocProvider(
             providers: [
               BlocProvider<AuthenticationCubit>(
                 create: (context) => sl<AuthenticationCubit>()..userCheck(),
+              ),
+              BlocProvider<TodoCubit>(
+                create: (context) => sl<TodoCubit>(),
               ),
             ],
             child: const AuthManager(),

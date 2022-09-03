@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/core/utils/carousel_login_items.dart';
-import 'package:todo/presentation/widgets/custom/custom_text.dart';
+
+import '../components/custom_text.dart';
 
 class CarouselLogin extends StatefulWidget {
   const CarouselLogin({Key? key}) : super(key: key);

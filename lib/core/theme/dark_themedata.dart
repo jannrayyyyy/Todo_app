@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
 
-class DartTheme {
-  Color dark = const Color(0XFF16213E);
+class DarkTheme {
   static ThemeData themeData() {
     return ThemeData(
-      primaryColor: const Color(0XFF16213E),
-      backgroundColor: const Color(0XFF16213E),
-      indicatorColor: const Color(0XFF16213E),
-      hintColor: const Color(0XFF16213E),
-      highlightColor: const Color(0XFF16213E),
-      hoverColor: const Color(0XFF16213E),
-      focusColor: const Color(0XFF16213E),
-      disabledColor: const Color(0XFF16213E),
-      cardColor: const Color(0XFF16213E),
-      canvasColor: const Color(0XFF16213E),
+      scaffoldBackgroundColor: const Color(0XFF121212),
+      drawerTheme: const DrawerThemeData(backgroundColor: Color(0XFF121212)),
+      backgroundColor: const Color(0XFF121212),
+      hoverColor: Colors.purple.shade200,
+      focusColor: Colors.purple.shade200,
+      disabledColor: Colors.purple.shade200,
       brightness: Brightness.dark,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0XFF16213E),
-        iconTheme: IconThemeData(color: Colors.black),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.purple.shade200),
+      dialogBackgroundColor: Colors.grey.shade900,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          primary: Colors.purple.shade200,
+          textStyle: const TextStyle(color: Colors.black),
+        ),
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.purple.shade200),
         elevation: 0,
       ),
+      iconTheme: IconThemeData(color: Colors.purple.shade200),
     );
   }
 }

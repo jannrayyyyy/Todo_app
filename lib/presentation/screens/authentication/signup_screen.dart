@@ -2,12 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:todo/presentation/widgets/components/signup_text.dart';
-import 'package:todo/presentation/widgets/custom/custom_text.dart';
-import 'package:todo/presentation/widgets/custom/custom_textfield.dart';
 
 import '../../../domain/entities/user_entity.dart';
 import '../../cubit/authentication/authentication_cubit.dart';
+import '../../widgets/components/custom_text.dart';
+import '../../widgets/components/custom_textfield.dart';
+import '../../widgets/custom/signup_text.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);

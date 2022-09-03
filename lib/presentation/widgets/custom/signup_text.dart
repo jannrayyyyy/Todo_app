@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo/presentation/widgets/custom/custom_text.dart';
+
+import '../components/custom_text.dart';
 
 class SignUpText extends StatelessWidget {
   const SignUpText({Key? key}) : super(key: key);

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:todo/presentation/screens/authentication/signup_screen.dart';
-import 'package:todo/presentation/widgets/components/carousel_login.dart';
-import 'package:todo/presentation/widgets/custom/custom_text.dart';
-import 'package:todo/presentation/widgets/custom/custom_textfield.dart';
+import 'package:todo/presentation/widgets/custom/carousel_login.dart';
 
 import '../../../dependency_injection.dart';
 import '../../cubit/authentication/authentication_cubit.dart';
+import '../../widgets/components/custom_text.dart';
+import '../../widgets/components/custom_textfield.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);

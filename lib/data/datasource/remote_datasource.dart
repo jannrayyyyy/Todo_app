@@ -7,7 +7,7 @@ import '../model/user_model.dart';
 abstract class RemoteDataSource {
   Stream<List<TodoModel>> getTodo();
   Future<void> addTodo(TodoModel todo);
-  Future<void> updateTodo(TodoModel todo);
+  Future<void> updateTodo(TodoModel todo, String uid);
   Future<void> deleteTodo(String uid);
   Future<void> signIn(String email, String password);
   Future<void> signUp(UserModel user);
@@ -19,10 +19,23 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   final auth = FirebaseAuth.instance;
   final fireF = FirebaseFirestore.instance;
   @override
-  Future<void> addTodo(TodoModel todo) async {}
+  Future<void> addTodo(TodoModel todo) async {
+    final docUser = FirebaseFirestore.instance.collection('todo').doc();
+
+    await docUser.set({
+      'uid': docUser.id,
+      'owner': todo.owner,
+      'content': todo.content,
+      'createdAt': DateTime.now().toString(),
+      'isFinished': todo.isFInished,
+    });
+  }
 
   @override
-  Future<void> deleteTodo(String uid) async {}
+  Future<void> deleteTodo(String uid) async {
+    final docUser = FirebaseFirestore.instance.collection('todo').doc(uid);
+    docUser.delete();
+  }
 
   @override
   Stream<List<TodoModel>> getTodo() {
@@ -35,7 +48,16 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<void> updateTodo(TodoModel todo) async {}
+  Future<void> updateTodo(TodoModel todo, String uid) async {
+    final docUser = FirebaseFirestore.instance.collection('todo').doc(uid);
+    docUser.update({
+      'uid': docUser.id,
+      'owner': todo.owner,
+      'content': todo.content,
+      'createdAt': DateTime.now().toString(),
+      'isFinished': todo.isFInished,
+    });
+  }
 
   @override
   Future<void> signIn(String email, String password) async {
