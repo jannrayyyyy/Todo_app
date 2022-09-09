@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
                 create: (context) => sl<AuthenticationCubit>()..userCheck(),
               ),
               BlocProvider<TodoCubit>(
-                create: (context) => sl<TodoCubit>(),
+                create: (context) => sl<TodoCubit>()..getTodo(),
               ),
             ],
             child: const AuthManager(),

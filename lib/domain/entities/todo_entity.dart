@@ -5,17 +5,20 @@ class TodoEntity extends Equatable {
   final String owner;
   final String title;
   final String content;
-  final List? task;
+  final List tasks;
   final String createdAt;
-  final bool isFInished;
+  final bool isFinished;
+  final String? dueDate;
+
   TodoEntity({
     this.uid,
-    this.task,
     required this.title,
     required this.owner,
     required this.content,
+    required this.tasks,
     required this.createdAt,
-    required this.isFInished,
+    required this.isFinished,
+    this.dueDate,
   });
 
   @override
