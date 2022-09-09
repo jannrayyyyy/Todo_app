@@ -25,9 +25,12 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     await docUser.set({
       'uid': docUser.id,
       'owner': todo.owner,
+      'title': todo.title,
       'content': todo.content,
+      'tasks': todo.tasks,
       'createdAt': DateTime.now().toString(),
-      'isFinished': todo.isFInished,
+      'isFinished': todo.isFinished,
+      'dueDate': todo.dueDate,
     });
   }
 
@@ -53,9 +56,12 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     docUser.update({
       'uid': docUser.id,
       'owner': todo.owner,
+      'title': todo.title,
       'content': todo.content,
+      'tasks': todo.tasks,
       'createdAt': DateTime.now().toString(),
-      'isFinished': todo.isFInished,
+      'isFinished': todo.isFinished,
+      'dueDate': todo.dueDate,
     });
   }
 

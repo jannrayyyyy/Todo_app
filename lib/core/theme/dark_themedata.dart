@@ -15,7 +15,7 @@ class DarkTheme {
       dialogBackgroundColor: Colors.grey.shade900,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          primary: Colors.purple.shade200,
+          backgroundColor: Colors.purple.shade200,
           textStyle: const TextStyle(color: Colors.black),
         ),
       ),

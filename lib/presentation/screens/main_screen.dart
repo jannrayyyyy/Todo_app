@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:todo/presentation/cubit/todo/todo_cubit.dart';
 import 'package:todo/presentation/screens/add_todo_screen.dart';
+import 'package:todo/presentation/screens/view_todo.dart';
 import 'package:todo/presentation/widgets/custom/task_card.dart';
 
+import '../../dependency_injection.dart';
 import '../widgets/components/custom_text.dart';
 import '../widgets/custom/drawer.dart';
 
@@ -26,22 +29,34 @@ class _MainScreenState extends State<MainScreen> {
           if (state is TodoLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is TodoEmpty) {
-            return SingleChildScrollView(
-              child: Column(
-                children: const [
-                  TaskCardWidget(),
-                ],
-              ),
+            return Column(
+              children: [
+                const SizedBox(height: 60),
+                Lottie.asset('assets/emptybox.json')
+              ],
             );
           }
 
           if (state is TodoLoaded) {
             return SingleChildScrollView(
               child: Column(
-                children: const [
-                  TaskCardWidget(),
-                ],
-              ),
+                  children: state.todo.map(
+                (e) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => ViewTodoScreen(
+                                    e: e,
+                                  ))));
+                    },
+                    child: TaskCardWidget(
+                      e: e,
+                    ),
+                  );
+                },
+              ).toList()),
             );
           } else {
             return Container(
@@ -51,16 +66,21 @@ class _MainScreenState extends State<MainScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const AddTodoScreen()));
-        },
-        icon: const Icon(Icons.add),
-        label: const CustomText(
-          text: 'Add notes',
-          weight: FontWeight.w600,
-        ),
-      ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => BlocProvider(
+                        create: (context) => sl<TodoCubit>(),
+                        child: const AddTodoScreen(
+                          category: 'Todo',
+                        ))));
+          },
+          icon: const Icon(Icons.add),
+          label: const CustomText(
+            text: 'Add Todo',
+            weight: FontWeight.w600,
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }

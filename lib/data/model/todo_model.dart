@@ -4,45 +4,45 @@ import 'package:todo/domain/entities/todo_entity.dart';
 class TodoModel extends TodoEntity {
   TodoModel({
     super.uid,
-    super.task,
     required super.owner,
     required super.title,
     required super.content,
+    required super.tasks,
     required super.createdAt,
-    required super.isFInished,
+    required super.isFinished,
   });
 
   factory TodoModel.fromEntity(TodoEntity todo) {
     return TodoModel(
       uid: todo.uid,
-      task: todo.task,
       owner: todo.owner,
       title: todo.title,
       content: todo.content,
+      tasks: todo.tasks,
       createdAt: todo.createdAt,
-      isFInished: todo.isFInished,
+      isFinished: todo.isFinished,
     );
   }
 
   factory TodoModel.fromjson(Map<String, dynamic> json) {
     return TodoModel(
       uid: json['uid'],
-      task: json['task'],
       owner: json['owner'],
       title: json['title'],
-      content: json['çontent'],
+      content: json['content'],
+      tasks: json['tasks'],
       createdAt: json['createdAt'],
-      isFInished: json['isFinished'],
+      isFinished: json['isFinished'],
     );
   }
 
   Map<String, dynamic> toJson() => {
         "uid": uid,
-        "task": task,
         "owner": owner,
         "title": title,
         "content": content,
+        "tasks": tasks,
         "createdAt": createdAt,
-        "isFinished": isFInished,
+        "isFinished": isFinished,
       };
 }
