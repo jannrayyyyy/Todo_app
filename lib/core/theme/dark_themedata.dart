@@ -6,25 +6,29 @@ class DarkTheme {
       scaffoldBackgroundColor: const Color(0XFF121212),
       drawerTheme: const DrawerThemeData(backgroundColor: Color(0XFF121212)),
       backgroundColor: const Color(0XFF121212),
-      hoverColor: Colors.purple.shade200,
-      focusColor: Colors.purple.shade200,
-      disabledColor: Colors.purple.shade200,
+      hoverColor: Colors.blue,
+      disabledColor: Colors.blue,
       brightness: Brightness.dark,
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: Colors.purple.shade200),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: Colors.blue,
+      ),
       dialogBackgroundColor: Colors.grey.shade900,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.purple.shade200,
-          textStyle: const TextStyle(color: Colors.black),
+          backgroundColor: Colors.blue,
+          textStyle: const TextStyle(color: Colors.white),
         ),
       ),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.purple.shade200),
+        iconTheme: IconThemeData(
+          color: Colors.blue,
+        ),
         elevation: 0,
       ),
-      iconTheme: IconThemeData(color: Colors.purple.shade200),
+      iconTheme: const IconThemeData(
+        color: Colors.blue,
+      ),
     );
   }
 }

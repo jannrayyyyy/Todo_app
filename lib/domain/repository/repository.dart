@@ -8,7 +8,7 @@ abstract class Repository {
   Future<void> signOut();
   Stream<User?> userState();
   Stream<List<TodoEntity>> getTodo();
-  Future<void> addTodo(TodoEntity todo);
-  Future<void> updateTodo(TodoEntity todo, String uid);
-  Future<void> deleteTodo(String uid);
+  Future<void> addTodo(Function function, TodoEntity todo);
+  Future<void> updateTodo(TodoEntity todo, String uid, Function function);
+  Future<void> deleteTodo(String uid, Function function);
 }

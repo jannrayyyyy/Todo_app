@@ -20,17 +20,17 @@ class TodoCubit extends Cubit<TodoState> {
     this.get,
   ) : super(TodoInitial());
 
-  void addTodo(TodoEntity todo) async {
+  void addTodo(Function function, TodoEntity todo) async {
     emit(TodoLoading());
-    await add(todo);
+    await add(function, todo);
   }
 
-  void updateTodo(TodoEntity todo, String uid) async {
-    await update(todo, uid);
+  void updateTodo(TodoEntity todo, String uid, Function function) async {
+    await update(todo, uid, function);
   }
 
-  void deleteTodo(String uid) async {
-    await delete(uid);
+  void deleteTodo(String uid, Function function) async {
+    await delete(uid, function);
   }
 
   void getTodo() {

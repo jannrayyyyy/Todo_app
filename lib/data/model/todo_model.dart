@@ -4,6 +4,7 @@ import 'package:todo/domain/entities/todo_entity.dart';
 class TodoModel extends TodoEntity {
   TodoModel({
     super.uid,
+    super.dateRange,
     required super.owner,
     required super.title,
     required super.content,
@@ -15,6 +16,7 @@ class TodoModel extends TodoEntity {
   factory TodoModel.fromEntity(TodoEntity todo) {
     return TodoModel(
       uid: todo.uid,
+      dateRange: todo.dateRange,
       owner: todo.owner,
       title: todo.title,
       content: todo.content,
@@ -27,6 +29,7 @@ class TodoModel extends TodoEntity {
   factory TodoModel.fromjson(Map<String, dynamic> json) {
     return TodoModel(
       uid: json['uid'],
+      dateRange: json['dateRange'],
       owner: json['owner'],
       title: json['title'],
       content: json['content'],
@@ -36,8 +39,9 @@ class TodoModel extends TodoEntity {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "uid": uid,
+        "dateRange": dateRange,
         "owner": owner,
         "title": title,
         "content": content,

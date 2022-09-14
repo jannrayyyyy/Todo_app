@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 
 class LightTheme {
-  Color dark = const Color(0XFF16213E);
   static ThemeData themeData() {
     return ThemeData(
       scaffoldBackgroundColor: Colors.white,
+      drawerTheme: const DrawerThemeData(backgroundColor: Colors.white),
       backgroundColor: Colors.white,
-      hoverColor: Colors.white,
-      focusColor: Colors.white,
-      disabledColor: Colors.white,
+      hoverColor: Colors.purple.shade200,
+      focusColor: Colors.purple.shade200,
+      disabledColor: Colors.purple.shade200,
       brightness: Brightness.light,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.purple.shade200),
+      dialogBackgroundColor: Colors.white,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.purple.shade200,
+          textStyle: const TextStyle(color: Colors.black),
+        ),
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.purple.shade200),
         elevation: 0,
       ),
+      iconTheme: IconThemeData(color: Colors.purple.shade200),
     );
   }
 }

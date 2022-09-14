@@ -18,7 +18,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final scaffoldKEy = GlobalKey<ScaffoldState>();
+  @override
+  void initState() {
+    context.read<TodoCubit>().getTodo();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +40,7 @@ class _MainScreenState extends State<MainScreen> {
                 Lottie.asset('assets/emptybox.json')
               ],
             );
-          }
-
-          if (state is TodoLoaded) {
+          } else if (state is TodoLoaded) {
             return SingleChildScrollView(
               child: Column(
                   children: state.todo.map(
@@ -47,9 +50,10 @@ class _MainScreenState extends State<MainScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => ViewTodoScreen(
-                                    e: e,
-                                  ))));
+                              builder: (context) => BlocProvider<TodoCubit>(
+                                    create: (context) => sl<TodoCubit>(),
+                                    child: ViewTodoScreen(e: e),
+                                  )));
                     },
                     child: TaskCardWidget(
                       e: e,
@@ -70,11 +74,9 @@ class _MainScreenState extends State<MainScreen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => BlocProvider(
-                        create: (context) => sl<TodoCubit>(),
-                        child: const AddTodoScreen(
-                          category: 'Todo',
-                        ))));
+                    builder: (context) => BlocProvider<TodoCubit>(
+                        create: (context) => sl<TodoCubit>()..getTodo(),
+                        child: const AddTodoScreen())));
           },
           icon: const Icon(Icons.add),
           label: const CustomText(

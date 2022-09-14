@@ -29,13 +29,19 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<void> addTodo(TodoEntity todo) async {
-    await remote.addTodo(TodoModel.fromEntity(todo));
+  Future<void> addTodo(Function function, TodoEntity todo) async {
+    await remote.addTodo(function, TodoModel.fromEntity(todo));
   }
 
   @override
-  Future<void> deleteTodo(String uid) async {
-    await remote.deleteTodo(uid);
+  Future<void> deleteTodo(String uid, Function function) async {
+    await remote.deleteTodo(uid, function);
+  }
+
+  @override
+  Future<void> updateTodo(
+      TodoEntity todo, String uid, Function function) async {
+    await remote.updateTodo(TodoModel.fromEntity(todo), uid, function);
   }
 
   @override
@@ -45,10 +51,5 @@ class RepositoryImpl implements Repository {
     } on Exception {
       rethrow;
     }
-  }
-
-  @override
-  Future<void> updateTodo(TodoEntity todo, String uid) async {
-    await remote.updateTodo(TodoModel.fromEntity(todo), uid);
   }
 }
