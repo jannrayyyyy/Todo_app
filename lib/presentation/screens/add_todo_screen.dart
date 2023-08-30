@@ -44,7 +44,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const CustomText(text: 'T-TASK'),
+          title: const CustomText(text: 'TODO'),
           actions: [
             IconButton(
               onPressed: () async {

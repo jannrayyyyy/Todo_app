@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class DarkTheme {
   static ThemeData themeData() {
     return ThemeData(
+      useMaterial3: true,
       scaffoldBackgroundColor: const Color(0XFF121212),
-      drawerTheme: const DrawerThemeData(backgroundColor: Color(0XFF121212)),
-      backgroundColor: const Color(0XFF121212),
+      drawerTheme: const DrawerThemeData(
+        backgroundColor: Color(0XFF121212),
+      ),
       hoverColor: Colors.blue,
       disabledColor: Colors.blue,
       brightness: Brightness.dark,

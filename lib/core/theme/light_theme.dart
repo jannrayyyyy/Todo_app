@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class LightTheme {
   static ThemeData themeData() {
     return ThemeData(
+      useMaterial3: true,
       scaffoldBackgroundColor: Colors.white,
       drawerTheme: const DrawerThemeData(backgroundColor: Colors.white),
-      backgroundColor: Colors.white,
       hoverColor: Colors.purple.shade200,
       focusColor: Colors.purple.shade200,
       disabledColor: Colors.purple.shade200,

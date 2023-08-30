@@ -12,7 +12,7 @@ class CarouselLogin extends StatefulWidget {
 }
 
 class _CarouselLoginState extends State<CarouselLogin> {
-  int _current = 0;
+  int current = 0;
   List<int> indexList = [0, 1, 2];
   final CarouselController _controller = CarouselController();
   @override
@@ -45,7 +45,7 @@ class _CarouselLoginState extends State<CarouselLogin> {
               autoPlay: true,
               onPageChanged: (index, reason) {
                 setState(() {
-                  _current = index;
+                  current = index;
                 });
               }),
         ),
